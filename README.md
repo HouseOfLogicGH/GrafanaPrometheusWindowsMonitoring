@@ -3,7 +3,7 @@
 Basic Monitoring of a Windows Server using dedicated exporter
 
 ## Instructions
-These instructions accompany the [YouTube instructional video by House of Logic](https://youtu.be/).
+These instructions accompany the [YouTube instructional video by House of Logic](https://youtu.be/wS_X77aNQMk).
 
 The Windows Exporter can be found [here.](https://github.com/prometheus-community/windows_exporter)
 
