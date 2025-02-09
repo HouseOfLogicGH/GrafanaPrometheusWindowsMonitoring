@@ -15,12 +15,16 @@ Clone this repo and edit the files in the prometheus directory as appropriate wi
 
 ### Install docker on a host of your choice
 
+```
 sudo apt-get update
 
 sudo apt-get install docker.io
 
+```
+
 ## Start Prometheus container using Docker
 
+```
 cd ../prometheus
 
 sudo docker volume create prometheus-data
@@ -32,19 +36,24 @@ sudo docker run --name prometheus \
     -v prometheus-data:/prometheus \
     prom/prometheus
 
+```
+
 ### Setup Grafana using docker
 
 Create persistent volume for your data
 
+```
 sudo docker volume create grafana-storage
 
 sudo docker run -d -p 3000:3000 --name=grafana \
   --volume grafana-storage:/var/lib/grafana \
   grafana/grafana-enterprise
 
+```
+
 Login to grafana using browser to connect to Grafana port 3000, eg http://192.168.2.11:3000
 
-Default credentials
+Default credentials:
 
 username = admin
 
@@ -54,8 +63,9 @@ password = admin
 
 Custom label:
 
-{{job}}
-
+```
+{{target}}
+```
 
 ## Useful links
 
