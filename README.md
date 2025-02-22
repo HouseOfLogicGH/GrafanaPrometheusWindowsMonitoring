@@ -65,7 +65,27 @@ Custom label:
 
 ```
 {{target}}
+
 ```
+
+## Notes for Advanced Scale out Deployments to Multiple Hosts
+
+In Active Directory environment, on the Domain Controller:
+
+Create a Share (permission "Everyone" Read-Only) on the DC, and put the exporter installer in it.
+
+Create an Organizational Unit, and add the machines to be monitored to it.
+
+Create a group policy for monitoring. Add the application as an assignment, using the network path.
+
+Add a firewall exception for port 9182.
+
+Run GPUPDATE /Force on the member - it will restart, pick up the application and firewall assignment.
+
+Stop the Prometheus service or container, edit the prometheus.yml file to add the extra target IP addresses, and then restart the service.
+
+For more advanced configs, use the Group Policy to update the config file located in "C:\Program Files\windows_exporter\config.yaml"
+
 
 ## Useful links
 
